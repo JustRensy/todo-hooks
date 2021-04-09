@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import { TiDeleteOutline } from 'react-icons/ti';
 
 const Todo = ({ todo }) => {
 	return (
 		<TodoWrapper>
 			<li>{todo.text}</li>
-			<i>X</i>
+
+			<TiDeleteOutline className='deleteIcon' />
 		</TodoWrapper>
 	);
 };
@@ -20,10 +22,10 @@ const TodoWrapper = styled.div`
 	background: #1597bb;
 	margin-bottom: 1rem;
 
-	i {
-		color: red;
-		font-weight: bold;
+	.deleteIcon {
 		cursor: pointer;
+		color: #d70000;
+		font-size: 2.5rem;
 	}
 `;
 
