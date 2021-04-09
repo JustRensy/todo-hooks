@@ -1,6 +1,6 @@
 # Todo App
 
-Simple work in progress todo application built to learn React Hooks such as useState and useContext.
+Simple work in progress todo application built to learn React Router and the Context API.
 
 ## Installation
 
