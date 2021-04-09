@@ -45,7 +45,6 @@ const StyledForm = styled.form`
 		color: white;
 		font-size: 2rem;
 		padding: 1rem;
-		/* margin-bottom: 1rem; */
 	}
 
 	button {

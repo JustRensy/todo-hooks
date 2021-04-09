@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 import { TiDeleteOutline } from 'react-icons/ti';
+import { useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 
 const Todo = ({ todo }) => {
+	const [todos, setTodos] = useContext(TodoContext);
+
+	const deleteTodo = (id) => {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	};
+
 	return (
 		<TodoWrapper>
 			<li>{todo.text}</li>
-			<TiDeleteOutline className='deleteIcon' />
+			<TiDeleteOutline onClick={deleteTodo} className='deleteIcon' />
 		</TodoWrapper>
 	);
 };
