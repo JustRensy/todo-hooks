@@ -3,18 +3,21 @@ import TodoList from './components/TodoList';
 import { Container } from './helpers/Container';
 import TodoForm from './components/TodoForm';
 import styled from 'styled-components';
+import { TodoProivder } from './context/TodoContext';
 
 const App = () => {
 	return (
-		<div className='app'>
-			<Navbar />
-			<StyledContainer>
-				<TodoWrapper>
-					<TodoForm />
-					<TodoList />
-				</TodoWrapper>
-			</StyledContainer>
-		</div>
+		<TodoProivder>
+			<div className='app'>
+				<Navbar />
+				<StyledContainer>
+					<TodoWrapper>
+						<TodoForm />
+						<TodoList />
+					</TodoWrapper>
+				</StyledContainer>
+			</div>
+		</TodoProivder>
 	);
 };
 

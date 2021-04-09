@@ -5,7 +5,6 @@ const Todo = ({ todo }) => {
 	return (
 		<TodoWrapper>
 			<li>{todo.text}</li>
-
 			<TiDeleteOutline className='deleteIcon' />
 		</TodoWrapper>
 	);

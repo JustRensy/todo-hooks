@@ -1,9 +1,32 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
+import { v4 as uuid } from 'uuid';
 
 const TodoForm = () => {
+	const [input, setInput] = useState('');
+	const [todos, setTodos] = useContext(TodoContext);
+
+	const addTodo = (e) => {
+		e.preventDefault();
+
+		if (!input || input.startsWith(' ')) {
+			return;
+		} else {
+			setTodos([...todos, { id: uuid(), text: input, completed: false }]);
+			setInput('');
+		}
+	};
+
 	return (
-		<StyledForm>
-			<input type='text' placeholder='What are your plans?' />
+		<StyledForm onSubmit={addTodo}>
+			<input
+				value={input}
+				onChange={(e) => setInput(e.target.value)}
+				type='text'
+				placeholder='What are your plans?'
+			/>
 			<button>Add Todo</button>
 		</StyledForm>
 	);
