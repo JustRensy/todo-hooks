@@ -8,6 +8,7 @@ const TodoList = () => {
 
 	return (
 		<TodoListWrapper>
+			<h2>Todos: {todos.length}</h2>
 			{todos.map((todo) => {
 				return <Todo key={todo.id} todo={todo} />;
 			})}
@@ -17,6 +18,11 @@ const TodoList = () => {
 
 const TodoListWrapper = styled.div`
 	width: 50%;
+
+	h2 {
+		font-size: 2rem;
+		margin-bottom: 1rem;
+	}
 `;
 
 export default TodoList;
