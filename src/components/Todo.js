@@ -27,6 +27,7 @@ const TodoWrapper = styled.div`
 	list-style: none;
 	padding: 1rem;
 	font-size: 1.75rem;
+	color: white;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;

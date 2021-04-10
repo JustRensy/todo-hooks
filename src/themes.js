@@ -1,4 +1,17 @@
-* {
+import { createGlobalStyle } from 'styled-components';
+
+export const lightTheme = {
+	body: '#fff',
+	fontColor: '#000',
+};
+
+export const darkTheme = {
+	body: '#181818',
+	fontColor: '#fff',
+};
+
+export const GlobalStyle = createGlobalStyle`
+	* {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -10,13 +23,15 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: #181818;
-	color: white;
+	background-color: ${(props) => props.theme.body};
+	color: ${(props) => props.theme.fontColor};
 	height: 100vh;
 	width: 100vw;
+	transition: background .5s, color .5s ease;
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
+`;

@@ -43,7 +43,7 @@ const StyledForm = styled.form`
 		background: none;
 		outline: none;
 		border: 1px solid #1597bb;
-		color: white;
+		color: ${(props) => props.theme.fontColor};
 		font-size: 2rem;
 		padding: 1rem;
 	}

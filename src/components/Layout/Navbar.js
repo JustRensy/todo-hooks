@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { Container } from '../../helpers/Container';
+import { CgDarkMode } from 'react-icons/cg';
 
-const Navbar = () => {
+const Navbar = ({ themeToggle, theme, setTheme }) => {
 	return (
 		<StyledNav>
 			<StyledContainer>
@@ -10,6 +11,7 @@ const Navbar = () => {
 					<li>Home</li>
 					<li>About</li>
 					<li>Contact</li>
+					<CgDarkMode onClick={themeToggle} className='themeToggle' />
 				</ul>
 			</StyledContainer>
 		</StyledNav>
@@ -29,7 +31,19 @@ const StyledNav = styled.nav`
 
 	ul {
 		display: flex;
+		align-items: center;
 		list-style: none;
+		color: white;
+
+		.themeToggle {
+			font-size: 1.5rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: #1597bb;
+			}
+		}
 	}
 
 	li {
