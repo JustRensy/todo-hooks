@@ -9,7 +9,7 @@ import { TodoProivder } from './context/TodoContext';
 import Footer from './components/Layout/Footer';
 
 const App = () => {
-	const [theme, setTheme] = useState('dark');
+	const [theme, setTheme] = useState('light');
 
 	const themeToggle = () => {
 		theme === 'light' ? setTheme('dark') : setTheme('light');
