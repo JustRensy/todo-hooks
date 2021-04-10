@@ -13,7 +13,10 @@ const Todo = ({ todo }) => {
 	return (
 		<TodoWrapper>
 			<li>{todo.text}</li>
-			<TiDeleteOutline onClick={deleteTodo} className='deleteIcon' />
+			<TiDeleteOutline
+				onClick={() => deleteTodo(todo.id)}
+				className='deleteIcon'
+			/>
 		</TodoWrapper>
 	);
 };
