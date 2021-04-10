@@ -36,6 +36,7 @@ const StyledNav = styled.nav`
 		margin-right: 1.5rem;
 		cursor: pointer;
 		font-size: 1.2rem;
+		transition: all 0.3s ease;
 
 		&:hover {
 			color: #1597bb;

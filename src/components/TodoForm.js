@@ -26,6 +26,7 @@ const TodoForm = () => {
 				onChange={(e) => setInput(e.target.value)}
 				type='text'
 				placeholder='What are your plans?'
+				required
 			/>
 			<button>Add Todo</button>
 		</StyledForm>
@@ -58,9 +59,10 @@ const StyledForm = styled.form`
 		font-family: inherit;
 		cursor: pointer;
 		outline: none;
+		transition: all 0.3s ease;
 
 		&:hover {
-			opacity: 0.8;
+			opacity: 0.7;
 		}
 	}
 `;

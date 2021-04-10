@@ -4,6 +4,7 @@ import { Container } from './helpers/Container';
 import TodoForm from './components/TodoForm';
 import styled from 'styled-components';
 import { TodoProivder } from './context/TodoContext';
+import Footer from './components/Layout/Footer';
 
 const App = () => {
 	return (
@@ -15,6 +16,7 @@ const App = () => {
 						<TodoForm />
 						<TodoList />
 					</TodoWrapper>
+					<Footer />
 				</StyledContainer>
 			</div>
 		</TodoProivder>
@@ -23,6 +25,7 @@ const App = () => {
 
 const TodoWrapper = styled.div`
 	height: 100%;
+	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -31,7 +34,11 @@ const TodoWrapper = styled.div`
 `;
 
 const StyledContainer = styled(Container)`
-	height: 100%;
+	height: 96vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 export default App;
