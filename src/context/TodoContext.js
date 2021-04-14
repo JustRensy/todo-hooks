@@ -1,14 +1,22 @@
-import { useState, createContext } from 'react';
-import { v4 as uuid } from 'uuid';
+import { useState, useEffect, createContext } from 'react';
+import { db } from '../firebase';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 export const TodoContext = createContext();
 
 export const TodoProivder = (props) => {
-	const [todos, setTodos] = useState([
-		{ id: uuid(), text: 'Buy Milk', completed: false },
-		{ id: uuid(), text: 'Learn React', completed: true },
-		{ id: uuid(), text: 'Watch Football', completed: false },
-	]);
+	useEffect(() => {
+		db.collection('todos').onSnapshot((snapshot) => {
+			setTodos(
+				snapshot.docs.map((doc) => ({
+					id: doc.id,
+					...doc.data(),
+				}))
+			);
+		});
+	}, []);
+
+	const [todos, setTodos] = useState([]);
 
 	return (
 		<TodoContext.Provider value={[todos, setTodos]}>

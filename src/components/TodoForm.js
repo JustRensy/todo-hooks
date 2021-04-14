@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { useContext } from 'react';
-import { TodoContext } from '../context/TodoContext';
-import { v4 as uuid } from 'uuid';
+import { db } from '../firebase';
 
 const TodoForm = () => {
 	const [input, setInput] = useState('');
-	const [todos, setTodos] = useContext(TodoContext);
 
 	const addTodo = (e) => {
 		e.preventDefault();
@@ -14,7 +11,10 @@ const TodoForm = () => {
 		if (!input || input.startsWith(' ')) {
 			return;
 		} else {
-			setTodos([...todos, { id: uuid(), text: input, completed: false }]);
+			db.collection('todos').add({
+				text: input,
+				completed: false,
+			});
 			setInput('');
 		}
 	};

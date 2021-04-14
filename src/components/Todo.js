@@ -3,20 +3,17 @@ import { TiDeleteOutline } from 'react-icons/ti';
 import { useContext } from 'react';
 import { TodoContext } from '../context/TodoContext';
 import { GrDrag } from 'react-icons/gr';
+import { db } from '../firebase';
 
 const Todo = ({ todo }) => {
 	const [todos, setTodos] = useContext(TodoContext);
-
-	const deleteTodo = (id) => {
-		setTodos(todos.filter((todo) => todo.id !== id));
-	};
 
 	return (
 		<TodoWrapper>
 			<GrDrag className='dragIcon' />
 			<li>{todo.text}</li>
 			<TiDeleteOutline
-				onClick={() => deleteTodo(todo.id)}
+				onClick={() => db.collection('todos').doc(todo.id).delete()}
 				className='deleteIcon'
 			/>
 		</TodoWrapper>
