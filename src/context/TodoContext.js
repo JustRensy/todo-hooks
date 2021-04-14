@@ -1,6 +1,5 @@
 import { useState, useEffect, createContext } from 'react';
 import { db } from '../firebase';
-import ClipLoader from 'react-spinners/ClipLoader';
 
 export const TodoContext = createContext();
 
